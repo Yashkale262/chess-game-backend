@@ -13,7 +13,6 @@ app.use(cors());
 const server=http.createServer(app);
 const io=new Server(server,{
     cors:{
-       origin: "https://chess-game-yash.onrender.com/",
         methods: ["GET","POST"]
     }
 });
@@ -28,7 +27,7 @@ let num=1;
 
 
 io.on("connection",(socket)=>{
-    
+    console.log("User connected");
     socket.on("play-online",()=>{
         full++;
         if(full===1)
@@ -100,7 +99,7 @@ io.on("connection",(socket)=>{
 })
 
 server.listen(port,()=>{
-    console.log("Server is running");
+    console.log("Server is running.");
 });
 
 
